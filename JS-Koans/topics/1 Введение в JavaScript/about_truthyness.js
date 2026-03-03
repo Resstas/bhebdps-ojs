@@ -3,24 +3,28 @@ describe("About Truthyness (about_truthyness.js)", function() {
   it("truthyness of positive numbers", function() {
     let oneIsTruthy = 1 ? true : false;
     // Является ли 1 истинным значением?
-    expect(FILL_ME_IN).toBe(oneIsTruthy);
+    expect(true).toBe(oneIsTruthy);
+    // Все положительные числа, кроме 0, являются truthy
   });
 
   it("truthyness of negative numbers", function() {
     let negativeOneIsTruthy = -1 ? true : false;
     // Является ли -1 истинным значением?
-    expect(FILL_ME_IN).toBe(negativeOneIsTruthy);
+    expect(true).toBe(negativeOneIsTruthy);
+    // Все отрицательные числа также являются truthy (кроме 0)
   });
 
   it("truthyness of zero", function() {
     let zeroIsTruthy = 0 ? true : false;
     // Является ли 0 истинным значением?
-    expect(FILL_ME_IN).toBe(zeroIsTruthy);
+    expect(false).toBe(zeroIsTruthy);
+    // 0 является falsy значением
   });
 
   it("truthyness of null", function() {
     let nullIsTruthy = null ? true : false;
     // Является ли null истинным значением?
-    expect(FILL_ME_IN).toBe(nullIsTruthy);
+    expect(false).toBe(nullIsTruthy);
+    // null является falsy значением
   });
 });

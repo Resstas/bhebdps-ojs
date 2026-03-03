@@ -1,4 +1,3 @@
-
 describe("About Operators (about_operators.js)", function() {
   it("addition", function() {
     let result = 0;
@@ -7,7 +6,13 @@ describe("About Operators (about_operators.js)", function() {
       result = result + i;
     }
     // Какое значение получится в результате?
-    expect(FILL_ME_IN).toBe(result);
+    // 0 + 0 = 0
+    // 0 + 1 = 1
+    // 1 + 2 = 3
+    // 3 + 3 = 6
+    // 6 + 4 = 10
+    // 10 + 5 = 15
+    expect(15).toBe(result);
   });
 
   it("assignment addition", function() {
@@ -16,8 +21,8 @@ describe("About Operators (about_operators.js)", function() {
       // Приведенный ниже код - это то же самое, что выполнить result = result + i; но более компактно
       result += i;
     }
-    // Какое значение получится в результате?
-    expect(FILL_ME_IN).toBe(result);
+    // Аналогично предыдущему примеру: 0+0+1+2+3+4+5 = 15
+    expect(15).toBe(result);
   });
 
   it("subtraction", function() {
@@ -25,8 +30,11 @@ describe("About Operators (about_operators.js)", function() {
     for (let i = 0; i <= 2; i++) {
       result = result - i;
     }
-    // Какое значение получится в результате?
-    expect(FILL_ME_IN).toBe(result);
+    // Начальное значение: 5
+    // i=0: 5 - 0 = 5
+    // i=1: 5 - 1 = 4
+    // i=2: 4 - 2 = 2
+    expect(2).toBe(result);
   });
 
   it("assignment subtraction", function() {
@@ -34,8 +42,8 @@ describe("About Operators (about_operators.js)", function() {
     for (let i = 0; i <= 2; i++) {
       result -= i;
     }
-    // Какое значение получится в результате?
-    expect(FILL_ME_IN).toBe(result);
+    // Аналогично предыдущему: 5 - 0 - 1 - 2 = 2
+    expect(2).toBe(result);
   });
 
   // Операторы присваивания доступны также для умножения и деления
@@ -46,19 +54,19 @@ describe("About Operators (about_operators.js)", function() {
     let x = 5;
     // Это точно так же, как и result = result % x
     result %= x;
-    // Какое значение получится в результате?
-    expect(FILL_ME_IN).toBe(result);
+    // Остаток от деления 10 на 5 равен 0
+    expect(0).toBe(result);
   });
 
   // typeof возвращает строку с названием типа
   it("typeof", function() {
     // Какой тип у пустого объекта?
-    expect(FILL_ME_IN).toBe(typeof {});
+    expect("object").toBe(typeof {});
     // Какой тип у строк?
-    expect(FILL_ME_IN).toBe(typeof 'apple');
+    expect("string").toBe(typeof 'apple');
     // Какой тип у -5?
-    expect(FILL_ME_IN).toBe(typeof -5);
+    expect("number").toBe(typeof -5);
     // Какой тип у false?
-    expect(FILL_ME_IN).toBe(typeof false);
+    expect("boolean").toBe(typeof false);
   });
 });
