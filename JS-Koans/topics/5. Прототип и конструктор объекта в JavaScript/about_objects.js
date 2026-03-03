@@ -8,12 +8,12 @@ describe("About Objects (about_objects.js)", function () {
     });
 
     it("should confirm objects are collections of properties", function () {
-      expect(megalomaniac.mastermind).toBe(FILL_ME_IN);
+      expect(megalomaniac.mastermind).toBe("Joker"); // Обращение к свойству mastermind
     });
 
     it("should confirm that properties are case sensitive", function () {
-      expect(megalomaniac.henchwoman).toBe(FILL_ME_IN);
-      expect(megalomaniac.henchWoman).toBe(FILL_ME_IN);
+      expect(megalomaniac.henchwoman).toBe("Harley"); // Свойство с маленькой 'w'
+      expect(megalomaniac.henchWoman).toBe(undefined); // Свойство с большой 'W' не существует
     });
   });
 
@@ -29,7 +29,8 @@ describe("About Objects (about_objects.js)", function () {
     };
 
     let battleCry = megalomaniac.battleCry(4);
-    expect(FILL_ME_IN).toMatch(battleCry);
+    // Array(5).join(" Brain") создает " Brain Brain Brain Brain" (4 раза)
+    expect("They are Pinky and the Brain Brain Brain Brain").toMatch(battleCry);
   });
 
   it("should confirm that when a function is attached to an object, 'this' refers to the object", function () {
@@ -44,8 +45,8 @@ describe("About Objects (about_objects.js)", function () {
       }
     };
 
-    expect(currentYear).toBe(FILL_ME_IN);
-    expect(megalomaniac.calculateAge()).toBe(FILL_ME_IN);
+    expect(currentYear).toBe(currentDate.getFullYear()); // Текущий год
+    expect(megalomaniac.calculateAge()).toBe(currentYear - 1970); // Возраст = текущий год - 1970
   });
 
   describe("'in' keyword", function () {
@@ -61,26 +62,26 @@ describe("About Objects (about_objects.js)", function () {
     it("should have the bomb", function () {
       let hasBomb = "theBomb" in megalomaniac;
 
-      expect(hasBomb).toBe(FILL_ME_IN);
+      expect(hasBomb).toBe(true); // Свойство theBomb существует
     });
 
     it("should not have the detonator however", function () {
       let hasDetonator = "theDetonator" in megalomaniac;
 
-      expect(hasDetonator).toBe(FILL_ME_IN);
+      expect(hasDetonator).toBe(false); // Свойство theDetonator не существует
     });
   });
 
   it("should know that properties can be added and deleted", function () {
     let megalomaniac = { mastermind : "Agent Smith", henchman: "Agent Smith" };
 
-    expect("secretary" in megalomaniac).toBe(FILL_ME_IN);
+    expect("secretary" in megalomaniac).toBe(false); // Изначально свойства нет
 
     megalomaniac.secretary = "Agent Smith";
-    expect("secretary" in megalomaniac).toBe(FILL_ME_IN);
+    expect("secretary" in megalomaniac).toBe(true); // После добавления свойство есть
 
     delete megalomaniac.henchman;
-    expect("henchman" in megalomaniac).toBe(FILL_ME_IN);
+    expect("henchman" in megalomaniac).toBe(false); // После удаления свойства нет
   });
 
 
@@ -93,14 +94,14 @@ describe("About Objects (about_objects.js)", function () {
       let colouredCircle = new Circle(5);
       colouredCircle.colour = "red";
 
-      expect(simpleCircle.colour).toBe(FILL_ME_IN);
-      expect(colouredCircle.colour).toBe(FILL_ME_IN);
+      expect(simpleCircle.colour).toBe(undefined); // У simpleCircle нет свойства colour
+      expect(colouredCircle.colour).toBe("red"); // У colouredCircle есть собственное свойство colour
 
       Circle.prototype.describe = function () {
         return "This circle has a radius of: " + this.radius;
       };
 
-      expect(simpleCircle.describe()).toBe(FILL_ME_IN);
-      expect(colouredCircle.describe()).toBe(FILL_ME_IN);
+      expect(simpleCircle.describe()).toBe("This circle has a radius of: 10"); // Метод из прототипа
+      expect(colouredCircle.describe()).toBe("This circle has a radius of: 5"); // Метод из прототипа
   });
 });

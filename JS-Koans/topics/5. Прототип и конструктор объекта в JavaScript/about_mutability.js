@@ -3,7 +3,7 @@ describe("About Mutability (about_mutability.js)", function() {
     let aPerson = { firstname: "John", lastname: "Smith" };
     aPerson.firstname = "Alan";
 
-    expect(aPerson.firstname).toBe(FILL_ME_IN);
+    expect(aPerson.firstname).toBe("Alan"); // Свойство было изменено на "Alan"
   });
 
   it("should understand that constructed properties are public and mutable", function () {
@@ -14,7 +14,7 @@ describe("About Mutability (about_mutability.js)", function() {
     let aPerson = new Person("John", "Smith");
     aPerson.firstname = "Alan";
 
-    expect(aPerson.firstname).toBe(FILL_ME_IN);
+    expect(aPerson.firstname).toBe("Alan"); // Свойство, созданное через this, публично и изменяемо
   });
   
   it("should expect prototype properties to be public and mutable", function () {
@@ -27,13 +27,13 @@ describe("About Mutability (about_mutability.js)", function() {
     };
   
     let aPerson = new Person("John", "Smith");
-    expect(aPerson.getFullName()).toBe(FILL_ME_IN);
+    expect(aPerson.getFullName()).toBe("John Smith"); // Метод из прототипа
   
     aPerson.getFullName = function () {
       return this.lastname + ", " + this.firstname;
     };
   
-    expect(aPerson.getFullName()).toBe(FILL_ME_IN);
+    expect(aPerson.getFullName()).toBe("Smith, John"); // Собственный метод объекта переопределяет прототипный
   });
   
   it("should know that variables inside a constructor and constructor args are private", function () {
@@ -50,14 +50,14 @@ describe("About Mutability (about_mutability.js)", function() {
     aPerson.lastname = "Andrews";
     aPerson.fullName = "Penny Andrews";
   
-    expect(aPerson.getFirstName()).toBe(FILL_ME_IN);
-    expect(aPerson.getLastName()).toBe(FILL_ME_IN);
-    expect(aPerson.getFullName()).toBe(FILL_ME_IN);
+    expect(aPerson.getFirstName()).toBe("John"); // getFirstName возвращает оригинальное firstname из замыкания
+    expect(aPerson.getLastName()).toBe("Smith"); // getLastName возвращает оригинальное lastname из замыкания
+    expect(aPerson.getFullName()).toBe("John Smith"); // getFullName возвращает оригинальное fullName из замыкания
 
     aPerson.getFullName = function () {
       return aPerson.lastname + ", " + aPerson.firstname;
     };
 
-    expect(aPerson.getFullName()).toBe(FILL_ME_IN);
+    expect(aPerson.getFullName()).toBe("Andrews, Penny"); // Новый метод использует новые значения свойств
   });
 });
