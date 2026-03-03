@@ -1,15 +1,15 @@
-
 describe("About Objects (about_objects.js)", function() {
   it("object type", function() {
     let emptyObject = {};
     // Какой тип у объектов?
-    expect(FILL_ME_IN).toBe(typeof emptyObject);
+    expect("object").toBe(typeof emptyObject);
+    // В JavaScript объекты имеют тип "object"
   });
 
   it("object literal notation", function() {
     let person = {
-      FILL_ME_IN: FILL_ME_IN,
-      FILL_ME_IN: FILL_ME_IN
+      name: "Amory Blaine",  // Свойство name со значением "Amory Blaine"
+      age: 102               // Свойство age со значением 102
     };
     // Какое имя у объекта person?
     expect("Amory Blaine").toBe(person.name);
@@ -19,8 +19,8 @@ describe("About Objects (about_objects.js)", function() {
 
   it("dynamically adding properties", function() {
     let person = {};
-    person.FILL_ME_IN = "Amory Blaine";
-    person.FILL_ME_IN = 102;
+    person.name = "Amory Blaine";  // Динамически добавляем свойство name
+    person.age = 102;              // Динамически добавляем свойство age
     // Какое имя у объекта person?
     expect("Amory Blaine").toBe(person.name);
     // Какое значение в свойстве age?
@@ -29,8 +29,8 @@ describe("About Objects (about_objects.js)", function() {
 
   it("adding properties from strings", function() {
     let person = {};
-    person["FILL_ME_IN"] = "Amory Blaine";
-    person["FILL_ME_IN"] = 102;
+    person["name"] = "Amory Blaine";  // Добавляем свойство через строковый ключ
+    person["age"] = 102;               // Добавляем свойство через строковый ключ
     // Какое имя у объекта person?
     expect("Amory Blaine").toBe(person.name);
     // Какое значение в свойстве age?
@@ -42,7 +42,7 @@ describe("About Objects (about_objects.js)", function() {
       name: "Amory Blaine",
       age: 102,
       toString: function() {
-        return FILL_ME_IN;  // Подсказка: используйте ключевое слово 'this' для обращения к объекту person.
+        return "I " + this.name + " am " + this.age + " years old.";  // Используем this для доступа к свойствам объекта
       }
     };
     // Какое значение возвращает метод toString?
@@ -58,8 +58,8 @@ describe("About Objects (about_objects.js)", function() {
       values.push(person[propertyName]);
     }
     // Какие имена свойств у объекта?
-    expect(keys).toEqual([ FILL_ME_IN, FILL_ME_IN, FILL_ME_IN]);
+    expect(keys).toEqual(['name', 'age', 'unemployed']);  // Имена свойств в порядке объявления
     // Какие значения свойств у объекта?
-    expect(values).toEqual([ FILL_ME_IN, FILL_ME_IN, FILL_ME_IN]);
+    expect(values).toEqual(['Amory Blaine', 102, true]);  // Значения соответствующих свойств
   });
 });
